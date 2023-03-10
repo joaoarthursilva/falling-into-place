@@ -7,12 +7,13 @@ using UnityEngine.Serialization;
 public class DealDamage : MonoBehaviour
 {
     public Transform respawnPoint;
-    public GameObject player;
+    private GameObject _player;
     public float startingHealth = 10f;
     private float _currentHealth;
     // private Vector3 _respawn;
     private void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         _currentHealth = startingHealth;
         // _respawn = respawnPoint.position;
     }
@@ -27,7 +28,7 @@ public class DealDamage : MonoBehaviour
         else
         {
             _currentHealth = startingHealth;
-            player.transform.position = respawnPoint.position;
+            _player.transform.position = respawnPoint.position;
         }
     }
 }
