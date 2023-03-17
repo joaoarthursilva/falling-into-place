@@ -38,6 +38,7 @@ namespace Player
 
         [SerializeField] private Vector3 groundRaycastOffset;
         private bool _onGround;
+        private Vector3 _currentSpawnPoint;
 
         private void Start()
         {
@@ -133,6 +134,22 @@ namespace Player
                             groundLayer) ||
                         Physics2D.Raycast(_position - groundRaycastOffset, Vector2.down, groundRaycastLength,
                             groundLayer);
+        }
+
+        public void SetSpawnPoint(Vector3 point)
+        {
+            _currentSpawnPoint = point;
+        }
+
+        public void Respawn()
+        {
+            gameObject.transform.position = _currentSpawnPoint;
+            _rb.velocity = Vector2.zero;
+        }
+
+        public void ResetExtraJumps()
+        {
+            _extraJumpsValue = extraJumps;
         }
 
         private void OnDrawGizmos()
