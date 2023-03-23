@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Managers
@@ -5,18 +7,19 @@ namespace Managers
     public class ParameterManager : MonoBehaviour
     {
         private GameObject[] _objects;
+        [SerializeField] private new string tag;
         [SerializeField] private float sizeToSet;
 
         private void Awake()
         {
-            _objects = GameObject.FindGameObjectsWithTag("RedSquare");
+            _objects = GameObject.FindGameObjectsWithTag(tag);
         }
 
         public void ChangeScale()
         {
-            foreach (var gameobject in _objects)
+            foreach (var go in _objects)
             {
-                gameobject.transform.localScale = new Vector3(sizeToSet, sizeToSet, sizeToSet);
+                go.transform.localScale = new Vector3(sizeToSet, sizeToSet, sizeToSet);
             }
         }
     }
