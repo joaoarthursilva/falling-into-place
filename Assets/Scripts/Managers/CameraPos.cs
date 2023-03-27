@@ -7,7 +7,7 @@ namespace Managers
         [SerializeField] private Transform player;
 
         // Update is called once per frame
-        void Update()
+        private void LateUpdate()
         {
             var position = player.position;
             transform.position = new Vector3(position.x, position.y, -10);
