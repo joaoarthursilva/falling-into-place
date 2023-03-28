@@ -23,6 +23,8 @@ namespace Player
         [Header("Jump Variables")] [SerializeField]
         private float jumpForce = 25f;
 
+        private bool _jumpInput;
+
         [SerializeField] private float fallMultiplier = 8f;
         [SerializeField] private float airLinearDrag = 2.5f;
         [SerializeField] private int extraJumps;
@@ -42,13 +44,14 @@ namespace Player
 
         private void Start()
         {
+            _jumpInput = false;
             _rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
             _position = transform.position;
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || _jumpInput)
             {
                 _jumpBufferCounter = jumpBufferLength;
             }
@@ -61,6 +64,10 @@ namespace Player
             if (canJump) Jump();
         }
 
+        public void InputJump()
+        {
+            _jumpInput = true;
+        }
 
         private void FixedUpdate()
         {
@@ -87,6 +94,7 @@ namespace Player
             _rb.velocity = new Vector2(_rb.velocity.x, 0f);
             _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             _jumpBufferCounter = 0f;
+            _jumpInput = false;
         }
 
         private void FallMultiplier()
