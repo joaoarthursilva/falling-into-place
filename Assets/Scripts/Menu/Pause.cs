@@ -43,7 +43,7 @@ public class Pause : MonoBehaviour
         settingsMenu.gameObject.SetActive(false);
     }
 
-    private void TogglePause(bool togglePause)
+    public void TogglePause(bool togglePause)
     {
         switch (isPaused)
         {
