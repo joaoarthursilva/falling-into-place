@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5822492470017711726}
   - component: {fileID: 5822492470017711720}
   - component: {fileID: 5822492470017711721}
+  - component: {fileID: 9144840273593311989}
+  - component: {fileID: 974019618453603150}
   m_Layer: 3
   m_Name: Bloco Ganhar
   m_TagString: Untagged
@@ -29,8 +31,7 @@ Transform:
   m_LocalPosition: {x: 30.6039, y: -61.653885, z: 0}
   m_LocalScale: {x: 10, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6959629767441699011}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,46 +113,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &8853052150288662794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6959629767441699011}
-  - component: {fileID: 5281974982087116640}
-  - component: {fileID: 8325088048410039267}
-  m_Layer: 3
-  m_Name: Bloco Ganhar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6959629767441699011
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8853052150288662794}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5822492470017711726}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5281974982087116640
+--- !u!61 &9144840273593311989
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8853052150288662794}
+  m_GameObject: {fileID: 5822492470017711727}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -171,13 +139,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.896684}
   m_EdgeRadius: 0
---- !u!114 &8325088048410039267
+--- !u!114 &974019618453603150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8853052150288662794}
+  m_GameObject: {fileID: 5822492470017711727}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1683ba31f3cf76c44bafde656f02bb34, type: 3}
