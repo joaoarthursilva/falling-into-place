@@ -10,6 +10,11 @@ namespace Player
         [Header("Layer Masks")] [SerializeField]
         private LayerMask groundLayer;
 
+        [Header("Controller Variables")] [SerializeField]
+        private Joystick _joystick;
+
+        private float _joystickHorizontal;
+
         [Header("Movement Variables")] [SerializeField]
         private float movementAcceleration = 75;
 
@@ -61,6 +66,7 @@ namespace Player
             }
 
             _horizontalDirection = GetInput().x;
+            _joystickHorizontal = _joystick.Horizontal;
             if (canJump) Jump();
         }
 
@@ -99,13 +105,10 @@ namespace Player
 
         private void FallMultiplier()
         {
-            if (_rb.velocity.y != 0)
-                _rb.gravityScale = fallMultiplier;
-            else
-                _rb.gravityScale = 1f;
+            _rb.gravityScale = _rb.velocity.y != 0 ? fallMultiplier : 1f;
         }
 
-        private Vector2 GetInput()
+        private static Vector2 GetInput()
         {
             return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
@@ -113,6 +116,7 @@ namespace Player
         private void MoveCharacter()
         {
             _rb.AddForce(new Vector2(_horizontalDirection, 0f) * movementAcceleration);
+            _rb.AddForce(new Vector2(_joystickHorizontal, 0f) * movementAcceleration);
 
             if (Mathf.Abs(_rb.velocity.x) > maxMoveSpeed)
                 _rb.velocity = new Vector2(Mathf.Sign(_rb.velocity.x) * maxMoveSpeed, _rb.velocity.y);
@@ -120,7 +124,7 @@ namespace Player
 
         private void ApplyGroundLinearDrag()
         {
-            if (Mathf.Abs(_horizontalDirection) < 0.4f || changingDirection)
+            if (Mathf.Abs(_horizontalDirection) < 0.4f || Mathf.Abs(_joystickHorizontal) < 0.4f || changingDirection)
             {
                 _rb.drag = groundLinearDrag;
             }
