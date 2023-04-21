@@ -92,8 +92,7 @@ namespace Player
                 _coyoteTimeCounter -= Time.deltaTime;
             }
         }
-
-
+        
         private void Jump()
         {
             if (!_onGround) _extraJumpsValue--;
@@ -124,14 +123,14 @@ namespace Player
 
         private void ApplyGroundLinearDrag()
         {
-            if (Mathf.Abs(_horizontalDirection) < 0.4f || Mathf.Abs(_joystickHorizontal) < 0.4f || changingDirection)
-            {
-                _rb.drag = groundLinearDrag;
-            }
-            else
-            {
+            // if (Mathf.Abs(_horizontalDirection) < 0.4f || Mathf.Abs(_joystickHorizontal) < 0.4f || changingDirection)
+            // {
+            //     _rb.drag = groundLinearDrag;
+            // }
+            // else
+            // {
                 _rb.drag = 0f;
-            }
+            // }
         }
 
         private void ApplyAirLinearDrag()
@@ -173,18 +172,6 @@ namespace Player
                 _position + groundRaycastOffset + Vector3.down * groundRaycastLength);
             Gizmos.DrawLine(_position - groundRaycastOffset,
                 _position - groundRaycastOffset + Vector3.down * groundRaycastLength);
-
-
-            //flip
-
-            //  if (movementAcceleration < 0)
-            //   {
-            //       Sprite.flipX = true;
-            //    }
-            //     else if (movementAcceleration < 0)
-            //   {
-            //         Sprite.flipX = false;
-            //   }
         }
     }
 }
