@@ -19,11 +19,11 @@ namespace Player
         private float movementAcceleration = 75;
 
         [SerializeField] private float maxMoveSpeed = 8f;
-        [SerializeField] private float groundLinearDrag = 10f;
+        // [SerializeField] private float groundLinearDrag = 10f;
         private float _horizontalDirection;
 
-        private bool changingDirection => (_rb.velocity.x > 0f && _horizontalDirection < 0f) ||
-                                          (_rb.velocity.x < 0f && _horizontalDirection > 0f);
+        // private bool changingDirection => (_rb.velocity.x > 0f && _horizontalDirection < 0f) ||
+                                          // (_rb.velocity.x < 0f && _horizontalDirection > 0f);
 
         [Header("Jump Variables")] [SerializeField]
         private float jumpForce = 25f;
